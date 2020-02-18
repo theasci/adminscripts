@@ -2,9 +2,9 @@
 # encoding: utf-8
 
 # ================================================================================
-# check-10.15.2-catalina-compatibility.py
+# check-10.15.3-catalina-compatibility.py
 #
-# This script checks if the current system is compatible with macOS 10.15.2 Catalina.
+# This script checks if the current system is compatible with macOS 10.15.3 Catalina.
 # These checks are based on the installCheckScript and volCheckScript in
 # distribution file of OSInstall.mpkg installer package.
 
@@ -15,7 +15,7 @@
 # The checks done by this script are (in order):
 # - Machine is a virtual machine or has a specific supported board-id
 # - Machine model is not in a list of unsupported models
-# - Current system version is less than 10.15.2 and at least 10.9
+# - Current system version is less than 10.15.3 and at least 10.9
 #
 # Exit codes:
 # 0 = Catalina is supported
@@ -95,7 +95,7 @@ def is_system_version_supported():
     system_version_plist = plistlib.readPlist("/System/Library/CoreServices/SystemVersion.plist")
     product_name = system_version_plist['ProductName']
     product_version = system_version_plist['ProductVersion']
-    if StrictVersion(product_version) >= StrictVersion('10.15.2'):
+    if StrictVersion(product_version) >= StrictVersion('10.15.3'):
         logger("System",
                "%s %s" % (product_name, product_version),
                "Failed")
